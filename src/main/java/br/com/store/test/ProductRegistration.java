@@ -15,6 +15,11 @@ public class ProductRegistration {
         cellphone.setDescription("PRO MAX");
         cellphone.setPrice(new BigDecimal("800"));
 
+        Product cellphone2 = new Product();
+        cellphone2.setName("Galaxy S22");
+        cellphone2.setDescription("ULTRA");
+        cellphone2.setPrice(new BigDecimal("750"));
+
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("store");
         EntityManager em = factory.createEntityManager();
         em.getTransaction().begin();
