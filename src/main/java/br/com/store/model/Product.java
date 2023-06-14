@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "produtos")
+@Table(name = "products")
 public class Product {
 
     @Id
@@ -16,7 +16,7 @@ public class Product {
     private BigDecimal price;
     private LocalDate registerDate = LocalDate.now();
 
-    @Enumerated(EnumType.STRING)
+    @ManyToOne
     private Category category;
 
     public Product(String name, String description, BigDecimal price, Category category) {

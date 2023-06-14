@@ -1,5 +1,6 @@
 package br.com.store.test;
 
+import br.com.store.dao.CategoryDao;
 import br.com.store.dao.ProductDao;
 import br.com.store.model.Category;
 import br.com.store.model.Product;
@@ -11,13 +12,19 @@ import java.math.BigDecimal;
 public class ProductRegistration {
 
     public static void main(String[] args) {
-        Product cellphone = new Product("IPhone 12", "PRO MAX", new BigDecimal("800"),Category.CELLPHONES);
+        Category cellphones = new Category("CELLPHONES");
+        Product cellphone = new Product("IPhone 12", "PRO MAX", new BigDecimal("800"), cellphones);
 
         EntityManager em = JPAUtil.getEntityManager();
-        ProductDao dao = new ProductDao(em);
+        ProductDao produtoDao = new ProductDao(em);
+        CategoryDao categoryDao = new CategoryDao(em);
 
-        dao.register(cellphone);
+
         em.getTransaction().begin();
+
+        categoryDao.register(cellphones);
+        produtoDao.register(cellphone);
+
         em.getTransaction().commit();
         em.close();
     }
