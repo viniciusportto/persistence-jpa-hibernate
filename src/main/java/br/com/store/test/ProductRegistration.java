@@ -1,10 +1,10 @@
 package br.com.store.test;
 
+import br.com.store.dao.ProductDao;
 import br.com.store.model.Product;
+import br.com.store.util.JPAUtil;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import java.math.BigDecimal;
 
 public class ProductRegistration {
@@ -15,15 +15,11 @@ public class ProductRegistration {
         cellphone.setDescription("PRO MAX");
         cellphone.setPrice(new BigDecimal("800"));
 
-        Product cellphone2 = new Product();
-        cellphone2.setName("Galaxy S22");
-        cellphone2.setDescription("ULTRA");
-        cellphone2.setPrice(new BigDecimal("750"));
+        EntityManager em = JPAUtil.getEntityManager();
+        ProductDao dao = new ProductDao(em);
 
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("store");
-        EntityManager em = factory.createEntityManager();
+        dao.register(cellphone);
         em.getTransaction().begin();
-        em.persist(cellphone);
         em.getTransaction().commit();
         em.close();
     }
