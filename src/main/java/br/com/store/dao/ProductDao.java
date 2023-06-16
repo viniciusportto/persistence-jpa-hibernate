@@ -3,6 +3,7 @@ package br.com.store.dao;
 import br.com.store.model.Product;
 
 import javax.persistence.EntityManager;
+import java.math.BigDecimal;
 import java.util.List;
 
 public class ProductDao {
@@ -38,6 +39,13 @@ public class ProductDao {
         return em.createQuery(jpql, Product.class)
                 .setParameter("name", name)
                 .getResultList();
+    }
+
+    public BigDecimal findByPriceWithName(String name){
+        String jpql = "SELECT p.price FROM Product p WHERE p.name = :name";
+        return em.createQuery(jpql, BigDecimal.class)
+                .setParameter("name", name)
+                .getSingleResult();
     }
 
 

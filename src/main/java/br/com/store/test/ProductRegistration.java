@@ -21,6 +21,9 @@ public class ProductRegistration {
 
         List<Product> all = productDao.findByCategory("CELLPHONES");
         all.forEach(p2 -> System.out.println(p.getName()));
+
+        BigDecimal productPrice = productDao.findByPriceWithName("Iphone 13");
+        System.out.println("Product price: " + productPrice);
     }
 
     private static void registerProduct() {
