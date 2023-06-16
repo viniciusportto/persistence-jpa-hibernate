@@ -47,6 +47,4 @@ public class ProductDao {
                 .setParameter("name", name)
                 .getSingleResult();
     }
-
-
 }

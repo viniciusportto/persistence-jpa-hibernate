@@ -42,5 +42,4 @@ public class ProductRegistration {
         em.getTransaction().commit();
         em.close();
     }
-
 }

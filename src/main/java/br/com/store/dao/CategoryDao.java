@@ -1,7 +1,6 @@
 package br.com.store.dao;
 
 import br.com.store.model.Category;
-import br.com.store.model.Product;
 
 import javax.persistence.EntityManager;
 
@@ -24,7 +23,4 @@ public class CategoryDao {
     public void remove(Category category){
         this.em.remove(category);
     }
-
-
-
 }

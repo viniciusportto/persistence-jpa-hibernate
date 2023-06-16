@@ -1,6 +1,5 @@
 package br.com.store.model;
 
-
 import javax.persistence.*;
 
 @Entity
