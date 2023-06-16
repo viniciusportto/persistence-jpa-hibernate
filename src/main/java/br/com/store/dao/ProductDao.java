@@ -26,7 +26,19 @@ public class ProductDao {
         return em.createQuery(jpql, Product.class).getResultList();
     }
 
+    public List<Product> findByName(String name){
+        String jpql = "SELECT p FROM Product p WHERE p.name = :name";
+        return em.createQuery(jpql, Product.class)
+                .setParameter("name", name)
+                .getResultList();
+    }
 
+    public List<Product> findByCategory(String name){
+        String jpql = "SELECT p FROM Product p WHERE p.category.name = :name";
+        return em.createQuery(jpql, Product.class)
+                .setParameter("name", name)
+                .getResultList();
+    }
 
 
 }

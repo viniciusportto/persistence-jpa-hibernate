@@ -19,7 +19,7 @@ public class ProductRegistration {
         Product p = productDao.findById(1L);
         System.out.println(p.getPrice());
 
-        List<Product> all = productDao.findAll();
+        List<Product> all = productDao.findByCategory("CELLPHONES");
         all.forEach(p2 -> System.out.println(p.getName()));
     }
 
