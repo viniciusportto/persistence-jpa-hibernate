@@ -28,7 +28,9 @@ public class ProductRegistration {
 
     private static void registerProduct() {
         Category cellphones = new Category("CELLPHONES");
+        Category laptop = new Category("Laptop");
         Product cellphone = new Product("Iphone 13", "very cool", new BigDecimal("800"), cellphones);
+
 
         EntityManager em = JPAUtil.getEntityManager();
         ProductDao productDao = new ProductDao(em);
