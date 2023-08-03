@@ -11,7 +11,7 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private BigDecimal TotalValue;
+    private BigDecimal totalValue;
     private LocalDate date = LocalDate.now();
 
     @ManyToOne
@@ -33,11 +33,11 @@ public class Order {
     }
 
     public BigDecimal getTotalValue() {
-        return TotalValue;
+        return totalValue;
     }
 
     public void setTotalValue(BigDecimal totalValue) {
-        TotalValue = totalValue;
+        this.totalValue = totalValue;
     }
 
     public LocalDate getDate() {
