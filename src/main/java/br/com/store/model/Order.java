@@ -3,6 +3,7 @@ package br.com.store.model;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "orders")
@@ -16,6 +17,9 @@ public class Order {
 
     @ManyToOne
     private Customer customer;
+
+    @OneToMany
+    private List<ItemOrder> items;
 
     public Order(Customer customer) {
         this.customer = customer;
