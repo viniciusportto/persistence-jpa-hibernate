@@ -3,6 +3,7 @@ package br.com.store.model;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -18,11 +19,16 @@ public class Order {
     @ManyToOne
     private Customer customer;
 
-    @OneToMany
-    private List<ItemOrder> items;
+    @OneToMany(mappedBy = "order")
+    private List<ItemOrder> items = new ArrayList<>();
 
     public Order(Customer customer) {
         this.customer = customer;
+    }
+
+    public void addOrder(ItemOrder item){
+        item.setOrder(this);
+        this.items.add(item);
     }
 
     public Order() {

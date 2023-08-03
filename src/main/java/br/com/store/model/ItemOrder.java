@@ -22,6 +22,7 @@ public class ItemOrder {
     public ItemOrder(int quantity, Order order, Product product) {
         this.quantity = quantity;
         this.order = order;
+        this.unitPrice = product.getPrice();
         this.product = product;
     }
 
