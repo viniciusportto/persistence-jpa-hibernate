@@ -13,13 +13,14 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "total_value")
     private BigDecimal totalValue;
     private LocalDate date = LocalDate.now();
 
     @ManyToOne
     private Customer customer;
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<ItemOrder> items = new ArrayList<>();
 
     public Order(Customer customer) {

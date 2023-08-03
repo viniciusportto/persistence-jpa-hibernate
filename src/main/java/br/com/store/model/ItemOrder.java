@@ -10,6 +10,7 @@ public class ItemOrder {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "unit_price")
     private BigDecimal unitPrice;
     private int quantity;
 
