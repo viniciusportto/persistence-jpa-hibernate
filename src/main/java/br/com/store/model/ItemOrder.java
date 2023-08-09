@@ -69,4 +69,8 @@ public class ItemOrder {
     public void setProduct(Product product) {
         this.product = product;
     }
+
+    public BigDecimal getValue() {
+        return unitPrice.multiply(new BigDecimal(quantity));
+    }
 }

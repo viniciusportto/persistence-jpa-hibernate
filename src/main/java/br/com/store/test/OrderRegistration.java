@@ -31,7 +31,8 @@ public class OrderRegistration {
 
         em.getTransaction().commit();
 
-
+        BigDecimal totalSold = orderDao.totalValueSold();
+        System.out.printf("TOTAL VALUE: " + totalSold );
     }
 
     private static void registerDataBase() {

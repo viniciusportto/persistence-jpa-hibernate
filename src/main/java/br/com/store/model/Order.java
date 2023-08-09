@@ -14,7 +14,7 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "total_value")
-    private BigDecimal totalValue;
+    private BigDecimal totalValue = BigDecimal.ZERO;
     private LocalDate date = LocalDate.now();
 
     @ManyToOne
@@ -30,6 +30,8 @@ public class Order {
     public void addOrder(ItemOrder item){
         item.setOrder(this);
         this.items.add(item);
+        this.totalValue = this.totalValue.add(item.getValue());
+
     }
 
     public Order() {
